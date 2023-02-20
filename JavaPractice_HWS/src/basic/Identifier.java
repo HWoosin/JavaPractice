@@ -1,5 +1,6 @@
+package basic;
 
-public class identifier {
+public class Identifier {
 
 	public static void main(String[] args) {
 		//꼭 지켜야 할 규칙(안 지킬시 에러가 발생한다.)
