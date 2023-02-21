@@ -24,7 +24,6 @@ public class ScannerQuiz {
 		System.out.println("출생년도: " + (2023 - age) + "년");
 		
 		sc.close();
-		
 	}
 
 }
