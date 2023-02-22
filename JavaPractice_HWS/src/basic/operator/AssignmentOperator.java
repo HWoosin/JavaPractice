@@ -1,4 +1,4 @@
-package basic;
+package basic.operator;
 
 public class AssignmentOperator {
 

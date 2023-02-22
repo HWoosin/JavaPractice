@@ -1,4 +1,4 @@
-package basic;
+package basic.begin;
 /**
  * 문서 설명문 주석, 배포용 문서에 설명을 할때 사용
  * @author 황우신

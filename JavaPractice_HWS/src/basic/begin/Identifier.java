@@ -1,4 +1,4 @@
-package basic;
+package basic.begin;
 
 public class Identifier {
 
