@@ -48,5 +48,7 @@ public class WhileExample3 {
 		}
 		else
 			System.out.printf("%d-> 소수가 아닙니다.", num);
+		
+		sc.close();
 	}
 }

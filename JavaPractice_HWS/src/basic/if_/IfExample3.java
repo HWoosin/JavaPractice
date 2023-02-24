@@ -44,7 +44,7 @@ public class IfExample3 {
 			System.out.println("놀이기구 탑승이 불가능합니다.");
 		}
 
-
+		sc.close();
 	}
 
 }
