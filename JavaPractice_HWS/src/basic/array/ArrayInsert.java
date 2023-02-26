@@ -35,7 +35,7 @@ public class ArrayInsert {
 		System.out.println("--------------------------------------");
 		System.out.print("입력받은 이름: ");
 		for(String n: names) {
-			if(n== null) break;//null은 문자열이 아니기때문에 .equals 메소드 사용하지않
+			if(n== null) break;//null은 문자열이 아니기때문에 .equals 메소드 사용하지않음
 			else {
 				System.out.print(n +" ");
 

@@ -37,7 +37,7 @@ public class EnhancedForLoop {
 		
 		
 		for(int s : scores) {
-			total+=s;
+			total+=s;//s값은 자꾸 다음배열을 불러오겠지 그걸 total에 누적합
 		}
 		double avg =(double)total/scores.length;
 		System.out.println("총점: "+ total);

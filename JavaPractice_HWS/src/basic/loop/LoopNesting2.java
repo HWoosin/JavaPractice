@@ -26,14 +26,14 @@ public class LoopNesting2 {
 		int count=0;// 소수 갯수 카운트
 		
 		for(i = 2; i <= num; i++) {// i부터 num 까지의 수 모두 검색
-			int c=0; // 소수가 맞는지 확인하기위한 카운트 약수가 2개여야한다.
-			for(int j = 1; j<= i; j++) {//i를 j로 나눠서 약수 갯수확인 
+			int c=0; // 소수가 맞는지 확인하기위한 카운트, 약수가 2개일때 증가시킬것임
+			for(int j = 1; j<= i; j++) {//i를 j로 나눠서 약수 갯수확인 ,나눠서 i의 약수가 1과 자기자신 뿐이면 그 수는 소수
 				if(i % j == 0) {				
 					c++;
 				}
 
 			}
-			if(c==2) {
+			if(c==2) {//c가 2인 약수들만 출력 하고 count를 증가(소수 갯수 세기)
 				System.out.printf("%d ",i);
 				count++;
 

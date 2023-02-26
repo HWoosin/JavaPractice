@@ -25,32 +25,32 @@ public class ArrayInsertQuiz {
         */
 		Scanner sc = new Scanner(System.in);
 		
-		String[] foods= new String[50];
+		String[] foods= new String[50];// 50의 배열 넓이 설정
 		
-		for(int i = 0; i < foods.length; i++) {
-			boolean flag= false;
+		for(int i = 0; i < foods.length; i++) {//배열 50개에 음식넣는 for문--(i번째 마다 계속 입력)
+			boolean flag= false;//중복검사를 위한 boolean flag변수-false로 초기화
 			System.out.print("음식을 주문하세요: ");
-			String eat = sc.next();
+			String eat = sc.next();//사용자 입력
 			
-			for(int j=0;j<i;j++) {
-				if(eat.equals(foods[j])) {
+			for(int j=0;j<i;j++) {//여태 입력한 배열들 중 사용자가 지금 입력한 내용이 중복되는지 하나씩 대조하는 for문--(j번 부터  i번 까지 검사)
+				if(eat.equals(foods[j])) {//사용자가 입력한 eat과 foods배열의 j번째가 같으면? flag를 true로 변경
 					flag= true;
 					System.out.println("중복");
-					i--;
+					i--;//다음배열로 넘어가서 빈 배열이 생기지 않기 위해 i 를 감소
 				}
 			}
 			
-			if(eat.equals("배불러")) {
+			if(eat.equals("배불러")) {//사용자가 eat에 배불러를 적으면 종료
 				System.out.println("그만 주문. ");
 				break;
 			}
-			if(!flag) {
+			if(!flag) {//flag가 false인 경우에만 foods의 i번째 배열에 저장
 				foods[i]= eat;
 			}
 			
 		}
 		
-		for(String m : foods){
+		for(String m : foods){ //m변수는 foods의 배열 하나씩 보여줌
 			if(m ==null) {
 				break;
 			}
