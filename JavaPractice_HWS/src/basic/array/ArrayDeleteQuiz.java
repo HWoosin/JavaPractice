@@ -26,7 +26,7 @@ public class ArrayDeleteQuiz {
 		}
 		if(!flag) {
 			System.out.println("일치하는 이름이 없음"); //중복 없으면 종료
-
+ 
 		}
 		else {
 			String[] kakao2 = new String[kakao.length-1];//앞에서 끌어당긴 애들 새 배열에 넣기

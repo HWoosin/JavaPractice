@@ -31,7 +31,7 @@ public class Array2D {
 		System.out.println(Arrays.deepToString(arr));
 		
 		System.out.println("-----------------------------------------------");
-		
+		 
 		//빈 2차원 배열 만들기
 		int[][] arr2 = new int[3][4];
 		System.out.println(Arrays.deepToString(arr2));

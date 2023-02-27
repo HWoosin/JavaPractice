@@ -23,7 +23,7 @@ public class ArrayInsert {
 			 * 그러므로 문자열 동등 비교를 진행할 때는
 			 * [비교문자열1.equals(비교문자열2)]를 사용하여 진행해야한다.
 			 */
-			
+			 
 			if(input.equals("그만")) {
 				System.out.println("입력 종료.");
 				break;

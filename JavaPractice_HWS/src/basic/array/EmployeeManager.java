@@ -112,7 +112,7 @@ public class EmployeeManager {
                 if(!flag) {
                     System.out.println("조회하신 사원의 정보가 없습니다.");
                 }
-			}
+			} 
 			else if(menu ==4) {
 				System.out.print("변경할 사원의 사번을 입력하세요:");
 				String userNum = sc.next();

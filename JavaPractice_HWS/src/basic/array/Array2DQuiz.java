@@ -21,7 +21,7 @@ public class Array2DQuiz {
 		 3. 반 평균을 출력해 보세요 (모든 학생들의 평균을 더해서 학생수로 나누기)
 		 */
 
-		//학생평균
+		//학생평균 
 		double allAvg = 0;
 		double stdSum = 0;
 		for(int i = 0; i<stuName.length;i++) {

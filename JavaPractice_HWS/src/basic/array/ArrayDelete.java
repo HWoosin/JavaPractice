@@ -13,7 +13,7 @@ public class ArrayDelete {
 		for(int i=3; i<arr.length-1; i++) {
 			arr[i]=arr[i+1];
 		}
-			
+			 
 		//System.out.println(Arrays.toString(arr));
 		
 		//기존의 배열보다 크기가 하나 작은 새 배열 생성

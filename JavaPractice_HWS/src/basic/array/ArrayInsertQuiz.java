@@ -38,7 +38,7 @@ public class ArrayInsertQuiz {
 					System.out.println("중복");
 					i--;//다음배열로 넘어가서 빈 배열이 생기지 않기 위해 i 를 감소
 				}
-			}
+			} 
 			
 			if(eat.equals("배불러")) {//사용자가 eat에 배불러를 적으면 종료
 				System.out.println("그만 주문. ");
