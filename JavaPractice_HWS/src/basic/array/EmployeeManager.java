@@ -14,12 +14,13 @@ public class EmployeeManager {
 		int[] ages =  new int[100];
 		String[] departments =  new String[100];
 
-		/*
+		/*예시
 		userNums[0]="123";
 		names[0]="황우신";
 		ages[0]=26;
 		departments[0]="개발부";
 		 */
+		
 		//입력된 데이터(사원의 정보)의 개수를 체크하는 변수.
 		int count=0;
 
@@ -127,12 +128,14 @@ public class EmployeeManager {
 					}
 				}
 					if(!flag) {
-						System.out.println("등록되지않은 사번입니다."+i);
+						System.out.println("등록되지않은 사번입니다.");
 						
 					}
 
 					else {
+						//확인차 선택한 배열을 출력해봄
 						System.out.printf("%s %s %d %s\n",userNums[i],names[i],ages[i],departments[i]);
+						
 						System.out.println("1. 나이변경 || 2. 부서변경 || 3.취소");
 						int choose = sc.nextInt();
 						if(choose ==1 ) {
@@ -176,6 +179,12 @@ public class EmployeeManager {
 						System.out.println("아니요를 선택하셨습니다.");
 						break;
 					case "Y": case "y":
+						if(i == userNums.length) {//99인덱스 처리
+							userNums[i]=null;
+							names[i]=null;
+							ages[i]=0;
+							departments[i]=null;
+						}
 						for(int j=i; j<userNums.length-1; j++) {
 							userNums[j] = userNums[j + 1];
 							names[j] = names[j + 1];
