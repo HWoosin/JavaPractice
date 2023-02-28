@@ -67,7 +67,7 @@ public class RussianRoulette {
 		//난수는 중복으로 발생할 가능성이 있기 때문에 중복 방지 로직을 세워서
 		//같은 위치에 두개의 실탄이 장전되지않도록 해주면 된다.
 
-
+/*
 		//실행 순서 정하기
 		//난수를 이용해서 실행 순서를 정함
 		//시작 인덱스를 난수로 정해서 돌아가게 해도 되고, 배치를 섞어도 상관없음
@@ -100,20 +100,20 @@ public class RussianRoulette {
 				bullet--;
 				p--;
 				bulletPos[realBulletPos] = false; //총알이 소모되었으니 false로 변경.
-				
+
 				for(int i = startIdx; i < people.length-1; i++) {//지금 죽은사람 기준으로 한칸씩 당김
 					people[i] = people[i+1];
 				}
 				String[] temp = new String[p];
-				
+
 				for(int j=0; j<temp.length; j++) {//temp에 죽은사람빼고 다시 담음
 					temp[j] = people[j];
 				}
 				people = temp; 
 				temp= null;
-				
+
 				System.out.println("생존자:"+Arrays.toString(people));
-				
+
 				if(p==1) {
 					System.out.println("최종생존자"+ people[0]);
 					System.out.println("가라..넌 살았다.");
@@ -140,81 +140,83 @@ public class RussianRoulette {
 				startIdx=0;
 			}
 			realBulletPos++;//다음탄으로 넘기기
+*/
+			//			내가작성
 
-			/*
-		int bc=0;
-		int rd = (int)(Math.random()*p);
-		System.out.printf("%s부터시작\n",people[rd]);
+			int bulletCount=0;
+			int startP = (int)(Math.random()*p);//랜덤으로 지정된 startP번째부터 게임시작
+			sc.nextLine();
+			
+			System.out.println("++++++게임시작++++++\n");
+			System.out.printf("%s부터시작\n",people[startP]);
 
-		int left =0;
-		String[] leftP = new String[people.length-1];
-		sc.nextLine();
-
-		System.out.println("++++++게임시작++++++\n");
-
-		while(true) {
-
-			for(int i=0; i<p; i++) {	
-				System.out.println(people[rd]+"의 차례");
+			while(true) {
+				//게임시작
+				System.out.println(people[startP]+"의 차례");
 				System.out.print("엔터를 누르면 방아쇠를 당깁니다.");
-				String enter = sc.nextLine();
+				sc.nextLine();
+				//총알격발!
+				if(bulletPos[bulletCount]) {//true면 격발된 상황
+					System.out.printf("%s 사망..\n",people[startP]);//startP째의 사람죽음
+					bullet--;//총알사용
+					p--;//사람감소
+					bulletPos[bulletCount]= false;//현재 총탄위치는 사용됨 그래서 false로 변경
 
-				if(enter.equals("")) {
-
-					for(int j=bc; j<6; j++) {//탄창 돌아가는중
-						if(bulletPos[j]==true) {
-							left++;
-							//살아있는 사람만 게임한다
-							System.out.println("빵!");
-							System.out.println(people[rd]+"사망..\n");
-							bc++;
-							bulletPos[j]=false;//사용한 총알 자리 false
-
-							for(int k=rd; k<people.length-left; k++) {
-								people[k]=people[k+1];//죽은사람 없애고 배열땡김
-							}
-							for(int k=0; k<leftP.length; k++) {
-								leftP[k]=people[k];
-							}
-							people = leftP;
-							//leftP=null;
-
-							p--;//죽고나면 배열이 줄어드니까 사람을 뽑는 난수도 감소
-							System.out.println(Arrays.toString(leftP));
-
-							if(j==5 || p==1) {
-								System.out.println("게임종료");
-								break;
-							}
-							break;
-
-						}
-						else if(j==5) {
-							System.out.println("총알소진");
-							System.out.println("게임종료");
-							break;
-						}
-						else {
-							System.out.println("운이좋군..당신은 살았어\n");
-							bc++;
-							break;
-						}
-
+					//죽었으면 치워야지,,startP번째 뒷사람들 다 땡김
+					for(int i=startP; i <people.length-1; i++) {//기존 배열 -1용량에 담아
+						people[i]=people[i+1];
 					}
+					String[] leftP = new String[people.length-1];//죽은사람빼고 다시배열담음
+					
+					for(int j=0; j<leftP.length;j++) {
+						leftP[j]=people[j];
+					}
+					people = leftP;//다시 그걸 people로 지정해준다.
+					leftP =null;
+					//생존 확인
+					System.out.println(Arrays.toString(people));
+
+					//다음 게임진행과 게임종료 조건
+					if(people.length ==1) {//다죽고 남은 1인일때
+						System.out.println("게임종료");
+						System.out.printf("생존자: %s ",people[0]);
+						break;
+					}
+					else if(bullet==0) {//총알이 다쓰고 살아남은 인원
+						System.out.println("총알소진");
+						System.out.println("생존자"+Arrays.toString(people));
+						break;
+					}
+					else {//위의 조건을 만족하지 못하면 아직 게임이 진행중
+						System.out.println("총돌리세요..");
+						sc.nextLine();
+					}
+
 				}
+				else {//총알 미격발
+					System.out.println("운이 좋군.. 총돌리세요.");
+					startP++;//랜덤지정부터 시작했으니까 그다음사람으로 넘기기, 증가해야 다음사람지목됨
+				}
+				if(startP ==p) {//people배열의 끝까지 갔다는것은, 다시 처음부터 배열시작시켜야한다는것이다
+					startP=0;
+				}
+				bulletCount++;//다음총알이 들어있는 탄으로 넘어가기위한 증가
 			}
-
-
+			sc.close();
 		}
-
-
-
-			 */
-		}
-		sc.close();
-		
 	}
-}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
