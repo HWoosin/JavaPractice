@@ -21,11 +21,15 @@ public class RussianRoulette {
 		//게임인원 입력
 		System.out.println("========== 러시안룰렛판에 오신것을 환영합니다. ==========");
 		System.out.print("참가 수: ");
-		int p = sc. nextInt();
-		if(p <2 || p>4) {
+		int p = sc. nextInt();//사람수 p
+		
+
+		if(p < 2 || p > 5) {//2명에서 5명 게임가능
 			System.out.println("게임 인원이 올바르지 않습니다.");
 			return;
 		}
+		
+		
 		String[] people = new String[p];
 
 		System.out.println("플레이어의 이름을 입력해주세요");
@@ -43,7 +47,7 @@ public class RussianRoulette {
 		int bullet = sc.nextInt();
 		if(bullet>5 || bullet<1) {
 			System.out.println("실탄 수가 올바르지 않습니다.");
-			return;
+			//return;
 		}
 
 		//실탄 탄창에 배치
@@ -85,6 +89,8 @@ public class RussianRoulette {
 		//또는 총알을 다 소비할 때 까지 게임을 진행해 주세요.
 		//총알을 소모하면 true값을 false로 변경해 주세요.
 		//사람이 한 명 아웃되면 배열의 크기를 줄여 주세요.
+
+
 		int realBulletPos = 0;
 		while(true) {
 
@@ -141,9 +147,10 @@ public class RussianRoulette {
 			}
 			realBulletPos++;//다음탄으로 넘기기
 */
-			//			내가작성
-
-			int bulletCount=0;
+		
+		
+			//내가작성한 코드
+			int bulletCount=0;//탄창자리 변수
 			int startP = (int)(Math.random()*p);//랜덤으로 지정된 startP번째부터 게임시작
 			sc.nextLine();
 			
@@ -157,16 +164,19 @@ public class RussianRoulette {
 				sc.nextLine();
 				//총알격발!
 				if(bulletPos[bulletCount]) {//true면 격발된 상황
+					System.out.println("빵!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 					System.out.printf("%s 사망..\n",people[startP]);//startP째의 사람죽음
 					bullet--;//총알사용
 					p--;//사람감소
 					bulletPos[bulletCount]= false;//현재 총탄위치는 사용됨 그래서 false로 변경
 
+					//==================================================================================
+					//배열 수정부문
 					//죽었으면 치워야지,,startP번째 뒷사람들 다 땡김
 					for(int i=startP; i <people.length-1; i++) {//기존 배열 -1용량에 담아
 						people[i]=people[i+1];
 					}
-					String[] leftP = new String[people.length-1];//죽은사람빼고 다시배열담음
+					String[] leftP = new String[people.length-1];//죽은사람빼고 다시배열담음 left People
 					
 					for(int j=0; j<leftP.length;j++) {
 						leftP[j]=people[j];
@@ -174,35 +184,44 @@ public class RussianRoulette {
 					people = leftP;//다시 그걸 people로 지정해준다.
 					leftP =null;
 					//생존 확인
-					System.out.println(Arrays.toString(people));
+					//System.out.println(Arrays.toString(people));
+					//==================================================================================
+					
 
+					
 					//다음 게임진행과 게임종료 조건
-					if(people.length ==1) {//다죽고 남은 1인일때
+					if(people.length ==1) {//다죽고 남은 최후의1인일때
 						System.out.println("게임종료");
-						System.out.printf("생존자: %s ",people[0]);
+						System.out.printf("생존자: %s ",people[0]);//배열에서 맨앞사람이 생존자 
 						break;
 					}
 					else if(bullet==0) {//총알이 다쓰고 살아남은 인원
 						System.out.println("총알소진");
-						System.out.println("생존자"+Arrays.toString(people));
+						System.out.println("다수의 생존자"+Arrays.toString(people));
 						break;
 					}
 					else {//위의 조건을 만족하지 못하면 아직 게임이 진행중
 						System.out.println("총돌리세요..");
 						sc.nextLine();
 					}
-
-				}
+				}//격발상황 끝.
+				
 				else {//총알 미격발
-					System.out.println("운이 좋군.. 총돌리세요.");
+					System.out.println("운이 좋군요.. 총돌리세요.");
 					startP++;//랜덤지정부터 시작했으니까 그다음사람으로 넘기기, 증가해야 다음사람지목됨
-				}
-				if(startP ==p) {//people배열의 끝까지 갔다는것은, 다시 처음부터 배열시작시켜야한다는것이다
+				}//미격발 상황 끝
+				bulletCount++;//다음총알이 들어있는 탄으로 넘어가기위한 증가
+				
+				
+				
+				//배열을 순환시키기위한 검사 if
+				if(startP == p) {//people배열의 끝까지 갔다는것은, 다시 처음부터 배열시작시켜야한다는것이다
 					startP=0;
 				}
-				bulletCount++;//다음총알이 들어있는 탄으로 넘어가기위한 증가
-			}
+			}//while 종료
 			sc.close();
+			
+			
 		}
 	}
 
