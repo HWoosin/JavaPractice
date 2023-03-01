@@ -66,90 +66,30 @@ public class RussianRoulette {
 		//탄창내용
 		//System.out.println(Arrays.toString(bulletPos));
 
+		
+//		※주의사항!!!!
+		
 		//난수 생성하고 실탄을 탄창에 배치
 		//false -> true로 바꾸는 것이 실탄 장전
 		//난수는 중복으로 발생할 가능성이 있기 때문에 중복 방지 로직을 세워서
 		//같은 위치에 두개의 실탄이 장전되지않도록 해주면 된다.
 
-/*
 		//실행 순서 정하기
 		//난수를 이용해서 실행 순서를 정함
 		//시작 인덱스를 난수로 정해서 돌아가게 해도 되고, 배치를 섞어도 상관없음
-		int startIdx = (int) (Math.random()*p);
-		System.out.printf("\n총을 돌렸습니다. %s부터 시작합니다.\n"
-				, people[startIdx]);
 
 		//일부러 입력 대기를 해서 흐름을 잠시 끊어줍니다.
 		//이 입력값(enter)은 받아서 활용할 것이 아니기 때문에 
 		//따로 변수를 선언하지 않습니다.
-		sc.nextLine();
 
-
+		
 		//최후의 1인이 남을 때 까지 게임을 진행해 주세요.
 		//또는 총알을 다 소비할 때 까지 게임을 진행해 주세요.
 		//총알을 소모하면 true값을 false로 변경해 주세요.
 		//사람이 한 명 아웃되면 배열의 크기를 줄여 주세요.
 
 
-		int realBulletPos = 0;
-		while(true) {
 
-			System.out.printf("\n\n[%s의 턴!]\t탄창을 장전했습니다.\n"
-					, people[startIdx]);
-			System.out.println("# 엔터를 누르면 격발합니다!");
-			sc.nextLine();
-
-			if(bulletPos[realBulletPos]) { //총알 격발!
-
-				System.out.printf("\n빵!!!\n[%s] 사망...\n"
-						, people[startIdx]);
-				bullet--;
-				p--;
-				bulletPos[realBulletPos] = false; //총알이 소모되었으니 false로 변경.
-
-				for(int i = startIdx; i < people.length-1; i++) {//지금 죽은사람 기준으로 한칸씩 당김
-					people[i] = people[i+1];
-				}
-				String[] temp = new String[p];
-
-				for(int j=0; j<temp.length; j++) {//temp에 죽은사람빼고 다시 담음
-					temp[j] = people[j];
-				}
-				people = temp; 
-				temp= null;
-
-				System.out.println("생존자:"+Arrays.toString(people));
-
-				if(p==1) {
-					System.out.println("최종생존자"+ people[0]);
-					System.out.println("가라..넌 살았다.");
-					break;
-				}
-				else if(bullet == 0) {
-					System.out.println("총알이 다 떨어졌습니다.");
-					System.out.println("생존자:"+Arrays.toString(people));
-					System.out.println("가라..너흰 살았다.");
-					break;
-
-				}
-				else {
-					System.out.println("총돌려라..총식는다..");
-					sc.nextLine();
-				}
-
-			} else { // false였기 때문에 생존.
-				System.out.println("휴... 살았습니다.");
-				startIdx++;
-			}
-			// startIdx가 증가하는데 배열밖으로 넘어가면 0으로 초기화 한다. 다음차례가 처음으로 돌아가기 하기위함
-			if(startIdx == p) {
-				startIdx=0;
-			}
-			realBulletPos++;//다음탄으로 넘기기
-*/
-		
-		
-			//내가작성한 코드
 			int bulletCount=0;//탄창자리 변수
 			int startP = (int)(Math.random()*p);//랜덤으로 지정된 startP번째부터 게임시작
 			sc.nextLine();
