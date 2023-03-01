@@ -47,7 +47,7 @@ public class RussianRoulette {
 		int bullet = sc.nextInt();
 		if(bullet>5 || bullet<1) {
 			System.out.println("실탄 수가 올바르지 않습니다.");
-			//return;
+			return;
 		}
 
 		//실탄 탄창에 배치
