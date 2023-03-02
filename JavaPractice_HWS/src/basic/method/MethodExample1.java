@@ -21,6 +21,7 @@ package basic.method;
 3. 실행 결과값을 메서드를 호출한 곳으로 다시 반환합니다.
 4. 반환된 값은 변수에 담아서 저장하거나, 출력하는 등 다양하게 활용합니다.
 */
+
 public class MethodExample1 {
 
 	//메서드의 선언(static은 뒤에서 설명 예정)
@@ -34,7 +35,11 @@ public class MethodExample1 {
 	
 	public static void main(String[] args) {
 		
-		calcTotal(2000);
+		int total = calcTotal(10);
+		System.out.println(total);
+		
+		System.out.println("1~100까지의 누적합: "+calcTotal(100));
+		System.out.println("1~200까지의 누적합: "+calcTotal(200));
 		
 	}
 
