@@ -7,6 +7,7 @@ public class Pen {
 	String color;
 	int price;
 	
+	//객체의 기능을 메서드라고 한다.
 	void write() {
 		System.out.println(color + "색 글을 씁니다.");
 	}
