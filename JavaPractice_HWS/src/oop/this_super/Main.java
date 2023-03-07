@@ -37,6 +37,9 @@ public class Main {
 		Hunter h1 = new Hunter("헤드헌터");
 		h1.charactorInfo();
 		
+		w1.attack(m1);
+		m1.attack(h1);
+		
 		
 	}
 
