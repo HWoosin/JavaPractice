@@ -18,13 +18,13 @@ public class MainClass {
 	public static void main(String[] args) {
 		
 		Shape c = new Circle("원",4);
-		c.getName();
+		System.out.println(c.getName()); 
 		System.out.printf("%.2f\n",c.getArea());
 		
 		System.out.println("==========================");
 		
 		Shape s = new Rect("정사각형",5,5);
-		s.getName();
+		System.out.println(s.getName()); 
 		System.out.println(s.getArea()); 
 
 	}
