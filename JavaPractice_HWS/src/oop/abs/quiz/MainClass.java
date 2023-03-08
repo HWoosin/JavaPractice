@@ -19,7 +19,7 @@ public class MainClass {
 		
 		Shape c = new Circle("원",4);
 		c.getName();
-		System.out.println(c.getArea());
+		System.out.printf("%.2f\n",c.getArea());
 		
 		System.out.println("==========================");
 		
