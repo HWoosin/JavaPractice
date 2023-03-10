@@ -56,6 +56,7 @@ public class ScoreMain {
 		//출력!
 		try {
 			for(Score s : info) {
+				//if(s == null) break;
 				s.scoreInfo();
 				System.out.println();
 			}
