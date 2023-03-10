@@ -43,7 +43,7 @@ public class ScoreMain {
 				int mth = sc.nextInt();
 				
 				int total = kor+eng+mth;
-				double avg = total/3;
+				double avg = total/3.0;
 				
 				System.out.println("");
 
