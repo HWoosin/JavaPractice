@@ -48,7 +48,7 @@ public class LottoSimulator {
 				return bonus;
 			}
 		}
-		
+
 
 	}
 	//당첨 등수알려주는 메서드
