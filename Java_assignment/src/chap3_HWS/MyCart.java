@@ -75,14 +75,17 @@ public class MyCart {
 		
 			System.out.println("============영수증============");
 			
+			int sum=0;
 			if(this.money <0) {
 				System.out.println("돈이 부족합니다.");
 			}
 			else {
 				for(Product p: cart) {
 					if(p==null) break;
+					sum+=p.price;
 					System.out.println(p.name);
 				}
+				System.out.println("합계 "+ sum);
 				System.out.println("잔돈 "+this.money);
 			}
 			
