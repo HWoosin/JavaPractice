@@ -29,12 +29,23 @@ public class Student {
 		this.stuId = sc.next();
 		System.out.print("- 이름: ");
 		this.name = sc.next();
-		System.out.print("- 국어: ");
-		this.kor = sc.nextInt();
-		System.out.print("- 영어: ");
-		this.eng = sc.nextInt();
-		System.out.print("- 수학: ");
-		this.math = sc.nextInt();
+		
+		while(true) {
+			try {
+				System.out.print("- 국어: ");
+				this.kor = sc.nextInt();
+				System.out.print("- 영어: ");
+				this.eng = sc.nextInt();
+				System.out.print("- 수학: ");
+				this.math = sc.nextInt();
+				break;
+			}
+			catch(Exception e) {
+				System.out.println("잘못된 입력!");
+				sc.nextLine();
+			}
+		}
+		
 
 		/*
 		국어, 영어, 수학 점수를 입력받습니다. 
