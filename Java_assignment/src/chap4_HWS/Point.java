@@ -54,7 +54,7 @@ public class Point {
 		showPointUI();
 		for(Student s : all) {
 			s.outputStuInfo();
-			classSum += s.getTotal();
+			classSum += s.getAverage();
 		}
 		System.out.println("");
 		double classAvg = (double)classSum/ all.size();
